@@ -1,0 +1,35 @@
+I elected to utilize a functional programming style just because I've been doing golang too long. 
+
+I also did not generalize or use generics. I have supplied a full interface using <String,String> <String, Instant>
+
+Look at tests to see the expectation of how to use this code library. 
+
+Some of these unit tests are generative assets, I personally wrote the rest of the library. It originally
+was going to support lifetimes and references but I didn't want the interface to be too ugly and I figured you wouldn't care 
+too much if it was &str vs String. 
+
+// 
+cargo build --release
+
+cargo build
+
+cargo test
+
+
+
+with more time the following features would be implemented:
+
+1. variable and reasonable limits on the value in the key value pair, such that reasonably 10million elements could be held in
+an amount of memory found in any reasonable machine (slightly less than 2g would be a good amount). It should technically hold even
+more due to hashmaps being "fake" and idealistic. That is, it needs more than 10,000,000 spaces to do a hashmap for 10,000,00 0 items
+without slowdowns. I will not elaborate here but it has to do with the way hashing works in the real world.
+
+I would like it if items that exceeded a certain size were automatically denied with an error that they are too large for the
+individual size limit.
+
+2. Generics 
+
+3. Object oriented style refactor -> this is a simple problem I wanted to solve on my own. Given a little more time I could have 
+done things in a bit more of an idiomatic way. I haven't done much rust professionally for a while, so I just kinda did it in a
+C style way.
+
